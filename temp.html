@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四雅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: '宋体', Arial, sans-serif;
+            overflow-x: hidden;
+            background: #f5f5f5;
+        }
+
+        /* 头部样式 */
+        .hero {
+            height: 100vh;
+            background: url('assets/img/siya.jpg') center/cover fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 15vw, 6rem);
+            margin-bottom: 2rem;
+            letter-spacing: 0.5em;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-quote {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            line-height: 2;
+            max-width: 90%;
+            margin: 0 auto 2rem;
+        }
+
+        /* 顶部选项 */
+        .top-options {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+            background: transparent;
+            z-index: 3;
+        }
+
+        .top-item {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .top-item:hover {
+            background: rgba(255, 255, 255, 0.6);
+            color: #BF3E2F;
+        }
+
+        /* 卡片样式 */
+        .content-section {
+            display: none;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .content-item {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .content-info {
+            padding: 1.5rem;
+        }
+
+        .content-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #BF3E2F;
+        }
+
+        .content-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部选项 -->
+    <div class="top-options">
+        <div class="top-item" onclick="showContent('yaji')">雅集</div>
+        <div class="top-item" onclick="showContent('yaqi')">雅器</div>
+        <div class="top-item" onclick="showContent('yayin')">雅饮</div>
+        <div class="top-item" onclick="showContent('yayan')">雅宴</div>
+    </div>
+
+    <!-- 头部区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">四雅</h1>
+            <div class="hero-quote">
+                "雅集以艺会友，雅宴以礼为魂，<br>
+                雅饮品四时之趣，雅器承匠心之美。"
+            </div>
+        </div>
+    </section>
+
+    <!-- 内容区域 -->
+    <section id="content-yaji" class="content-section">
+        <div class="content-item">
+            <div class="content-info">
+                <h2 class="content-title">雅集</h2>
+                <p class="content-description">在雅集中，古琴与茶香为伴，丹青与书法交融。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="content-yaqi" class="content-section">
+        <div class="content-item">
+            <div class="content-info">
+                <h2 class="content-title">雅器</h2>
+                <p class="content-description">雅器，以器物承载匠心，于细节中品味艺术。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="content-yayin" class="content-section">
+        <div class="content-item">
+            <div class="content-info">
+                <h2 class="content-title">雅饮</h2>
+                <p class="content-description">雅饮，一壶清茶，一杯美酒，品四时之味。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="content-yayan" class="content-section">
+        <div class="content-item">
+            <div class="content-info">
+                <h2 class="content-title">雅宴</h2>
+                <p class="content-description">雅宴，以礼为形，以情为魂。</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showContent(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById('content-' + sectionId).style.display = 'block';
+            document.querySelector('.top-options').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
